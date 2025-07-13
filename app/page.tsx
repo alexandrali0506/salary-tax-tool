@@ -13,32 +13,37 @@ const countries = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-50">
+    <div className="min-h-screen bg-[#f7f9fb]">
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-16 md:py-24 mb-8">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-200/40 to-pink-200/30 pointer-events-none" />
-        <h1 className="relative text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 drop-shadow-lg">Your one-stop <span className="text-blue-600">GlobalSalaryTax</span> calculator</h1>
-        <p className="relative text-lg md:text-2xl text-gray-700 mb-6 max-w-2xl mx-auto drop-shadow">Compare pre-tax and after-tax salaries across countries and plan your finances effectively.</p>
-        <Link href="#countries" className="relative inline-block px-8 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition text-lg font-semibold">Get Started</Link>
+      <section className="bg-gray-800 text-white py-12 px-4 text-center">
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-2">Helping you plan your finances effectively</h1>
+        <div className="text-2xl md:text-3xl font-bold mb-4">
+          <span>Global</span><span className="text-blue-400">Salary</span><span className="text-orange-400">Tax</span>
+        </div>
+        <div className="flex justify-center gap-4 mt-2">
+          {/* 可加 logo/icon，这里留空 */}
+        </div>
       </section>
 
-      {/* Country Grid */}
-      <section id="countries" className="max-w-4xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Choose a Country</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {/* Main Content */}
+      <main className="max-w-3xl mx-auto px-4 py-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Find what is your salary after tax</h2>
+        <p className="text-gray-600 text-center mb-8 text-base md:text-lg">
+          Calculate your take-home pay effortlessly with our accurate and up-to-date salary calculators
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {countries.map((c) => (
             <Link
               key={c.code}
               href={`/calculator/${c.code}`}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-blue-400 p-8 flex flex-col items-center transition-all duration-200 cursor-pointer hover:-translate-y-1"
+              className="flex flex-col items-center justify-center bg-white rounded-xl shadow hover:shadow-lg border border-gray-100 hover:border-blue-400 py-6 px-2 transition-all duration-150 cursor-pointer group"
             >
-              <span className="text-5xl mb-3 drop-shadow-sm">{c.flag}</span>
-              <span className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 mb-1">{c.name}</span>
-              <span className="text-xs text-gray-400 group-hover:text-blue-400">View Calculator</span>
+              <span className="text-4xl mb-2 drop-shadow-sm">{c.flag}</span>
+              <span className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 mb-1">{c.name}</span>
             </Link>
           ))}
         </div>
-      </section>
+      </main>
     </div>
   );
 } 
